@@ -1,0 +1,85 @@
+<div class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h2>
+            Resturnat Record App
+        </h2>
+        <div class="d-flex">
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal"  (click)="open(content);ClickAddResTo()">Add Resturant</button>
+        </div>
+    </div>
+</div>
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Resturant Record</h1>
+        <p class="col-md-8 fs-4">You can save record using Angular</p>
+
+    </div>
+    <ngb-toast *ngIf="show" header={{header}} [autohide]="false" (hidden)="close()">
+      {{body}}
+    </ngb-toast>
+</div>
+<table class="table mt-4">
+    <thead>
+        <tr>
+            <th scope="col">Resturant Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Address</th>
+            <th scope="col">Services</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of allResturnatData">
+            <td>{{data.id}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.mobile}}</td>
+            <td>{{data.address}}</td>
+            <td>{{data.services}}</td>
+            <td>
+                <button class="btn btn-info" data-toggle="modal" data-target="#exampleModal"  (click)="open(content); onEditResto(data)">Edit</button>&nbsp;
+                <button class="btn btn-danger" (click)="deleteData(data)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+  
+  <!-- Modal -->
+  <ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Add Details Here</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="formValue">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Name</label>
+          <input type="text" class="form-control" formControlName="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Resturant Name here">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Email</label>
+          <input type="email" class="form-control" formControlName="email" id="exampleInputPassword1" placeholder="Enter Email here">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Mobile Number</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" formControlName="mobile" aria-describedby="emailHelp" placeholder="Enter Mobile Number here">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Address</label>
+          <input type="text" class="form-control" formControlName="address" id="exampleInputPassword1" placeholder="Enter Address here">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Services</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" formControlName="services" aria-describedby="emailHelp" placeholder="Enter Services here">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button"  *ngIf="showRes"  class="btn btn-outline-dark" (click)="Reset()">Reset</button>
+      <button type="button" *ngIf="showAdd" class="btn btn-outline-dark" (click)="addResto()">Save</button>
+      <button type="button" *ngIf="showbtn" class="btn btn-outline-dark" (click)="updateResto()">Update</button>
+    </div>
+  </ng-template>
+ 

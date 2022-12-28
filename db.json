@@ -1,0 +1,40 @@
+{
+  "posts": [
+    {
+      "id": 3,
+      "name": "Faizan",
+      "email": "faizan@gmail.cpm",
+      "mobile": "030303223",
+      "address": "Shahkot",
+      "services": "Teas"
+    },
+    {
+      "id": 4,
+      "name": "Faizan",
+      "email": "faizan@gmail.cpm",
+      "mobile": "030303223",
+      "address": "Shahkot",
+      "services": "Tea"
+    },
+    {
+      "id": 5,
+      "name": "Faizan",
+      "email": "faizan@gmail.cpm",
+      "mobile": "Faizan",
+      "address": "faizan@gmail.cpm",
+      "services": "Tea"
+    },
+    {
+      "id": 6,
+      "name": "Faizan",
+      "email": "faizan@gmail.cpm",
+      "mobile": "Faizan",
+      "address": "faizan@gmail.cpm",
+      "services": "Coffe"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
